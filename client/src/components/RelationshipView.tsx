@@ -67,175 +67,180 @@ const RelationshipView: React.FC = () => {
         Back to Dashboard
       </button>
 
-      <div className="relationship-header">
-        <div className="relationship-info">
-          <h1 className="relationship-title">{relationship.couple}</h1>
-          <div className="relationship-symbol">{relationship.symbol}</div>
-          <div className="relationship-status-badge" data-status={relationship.relationshipStatus.toLowerCase().replace(' ', '-')}>
-            {relationship.relationshipStatus}
-          </div>
-        </div>
-        
-        <div className="relationship-price">
-          <div className="current-price">
-            ${relationship.price.toFixed(2)}
-          </div>
-          <div className={`price-change ${isPositive ? 'positive' : 'negative'}`}>
-            {isPositive ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
-            {isPositive ? '+' : ''}${Math.abs(relationship.change).toFixed(2)} 
-            ({isPositive ? '+' : ''}{relationship.changePercent.toFixed(2)}%)
-          </div>
-        </div>
-      </div>
-
-      {/* Portfolio Position Section */}
-      {hasPosition && (
-        <div className="portfolio-position-section">
-          <div className="position-header">
-            <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ffffff', fontSize: '18px', fontWeight: '600' }}>
-              <PieChart size={20} style={{ color: '#00d4aa' }} />
-              Your Position
-            </h3>
-          </div>
-          
-          <div className="position-stats-grid">
-            <div className="position-stat">
-              <div className="stat-label">Shares Owned</div>
-              <div className="stat-value">{userHolding.shares}</div>
-            </div>
-            <div className="position-stat">
-              <div className="stat-label">Market Value</div>
-              <div className="stat-value">
-                ${userHolding.value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+      <div className="relationship-main-content">
+        {/* Left Column - 30% */}
+        <div className="relationship-left-column">
+          <div className="relationship-header">
+            <div className="relationship-info">
+              <h1 className="relationship-title">{relationship.couple}</h1>
+              <div className="relationship-symbol">{relationship.symbol}</div>
+              <div className="relationship-status-badge" data-status={relationship.relationshipStatus.toLowerCase().replace(' ', '-')}>
+                {relationship.relationshipStatus}
               </div>
             </div>
-            <div className="position-stat">
-              <div className="stat-label">Today's Change</div>
-              <div className={`stat-value ${userHolding.dayChange >= 0 ? 'positive' : 'negative'}`}>
-                {userHolding.dayChange >= 0 ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
-                {userHolding.dayChange >= 0 ? '+' : ''}${Math.abs(userHolding.dayChange).toFixed(2)}
+            
+            <div className="relationship-price">
+              <div className="current-price">
+                ${relationship.price.toFixed(2)}
               </div>
-            </div>
-            <div className="position-stat">
-              <div className="stat-label">Total Return</div>
-              <div className={`stat-value ${isPositionPositive ? 'positive' : 'negative'}`}>
-                {isPositionPositive ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
-                {isPositionPositive ? '+' : ''}${Math.abs(totalReturn).toFixed(2)} ({isPositionPositive ? '+' : ''}{totalReturnPercent.toFixed(2)}%)
+              <div className={`price-change ${isPositive ? 'positive' : 'negative'}`}>
+                {isPositive ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
+                {isPositive ? '+' : ''}${Math.abs(relationship.change).toFixed(2)} 
+                ({isPositive ? '+' : ''}{relationship.changePercent.toFixed(2)}%)
               </div>
             </div>
           </div>
-          
-          <div className="position-actions">
-            <button 
-              className="portfolio-action-button primary"
-              onClick={() => navigate('/portfolio')}
-            >
-              <DollarSign size={16} />
-              View Full Portfolio
-            </button>
-            <button 
-              className="portfolio-action-button secondary"
-              onClick={() => navigate(`/trade/${symbol}`)}
-            >
-              Trade Position
-            </button>
-          </div>
-        </div>
-      )}
 
-      {/* No Position CTA */}
-      {!hasPosition && (
-        <div className="no-position-section">
-          <div style={{ 
-            background: '#1c2536', 
-            border: '1px solid #2d3748', 
-            borderRadius: '12px', 
-            padding: '24px',
-            textAlign: 'center',
-            marginBottom: '32px'
-          }}>
-            <PieChart size={48} style={{ color: '#64748b', marginBottom: '16px' }} />
-            <h3 style={{ color: '#ffffff', marginBottom: '8px' }}>You don't own this stock</h3>
-            <p style={{ color: '#64748b', marginBottom: '20px', fontSize: '14px' }}>
-              Start investing in {relationship.couple} to track your position here
-            </p>
-
-            <button 
-              className="portfolio-action-button primary"
-              onClick={() => navigate(`/trade/${symbol}`)}
-            >
-              Buy {relationship.symbol}
-            </button>
-          </div>
-        </div>
-      )}
-
-      <div className="relationship-stats">
-        <div className="stat-item">
-          <div className="stat-label">Volume</div>
-          <div className="stat-value">{relationship.volume.toLocaleString()}</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-label">Market Cap</div>
-          <div className="stat-value">${(relationship.price * relationship.volume / 1000000).toFixed(1)}M</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-label">Events</div>
-          <div className="stat-value">{relationship.events.length}</div>
-        </div>
-      </div>
-
-      <div className="relationship-content">
-        <div className="chart-section">
-          <h2>Price Chart</h2>
-          <div style={{ height: '600px', marginTop: '20px' }}>
-            <StockChart
-              data={relationship.chartData}
-              symbol={relationship.symbol}
-              color={isPositive ? '#00d4aa' : '#ff6b6b'}
-            />
-          </div>
-        </div>
-
-        <div className="events-section">
-          <h2>Recent Events</h2>
-          {relationship.events.length > 0 ? (
-            <div className="events-list">
-              {relationship.events.map(event => (
-                <div key={event.id} className="event-item">
-                  <div className="event-icon" style={{ color: getEventColor(event.impact) }}>
-                    {getEventIcon(event.type)}
-                  </div>
-                  <div className="event-content">
-                    <div className="event-description">{event.description}</div>
-                    <div className="event-meta">
-                      <span className="event-time">
-                        {new Date(event.timestamp).toLocaleDateString('en-US', {
-                          month: 'short',
-                          day: 'numeric',
-                          hour: '2-digit',
-                          minute: '2-digit'
-                        })}
-                      </span>
-                      {event.priceImpact && (
-                        <span className={`event-impact ${event.impact}`}>
-                          {event.priceImpact > 0 ? '+' : ''}${event.priceImpact.toFixed(2)}
-                        </span>
-                      )}
-                    </div>
+          {/* Portfolio Position Section */}
+          {hasPosition && (
+            <div className="portfolio-position-section">
+              <div className="position-header">
+                <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ffffff', fontSize: '18px', fontWeight: '600' }}>
+                  <PieChart size={20} style={{ color: '#00d4aa' }} />
+                  Your Position
+                </h3>
+              </div>
+              
+              <div className="position-stats-grid">
+                <div className="position-stat">
+                  <div className="stat-label">Shares Owned</div>
+                  <div className="stat-value">{userHolding.shares}</div>
+                </div>
+                <div className="position-stat">
+                  <div className="stat-label">Market Value</div>
+                  <div className="stat-value">
+                    ${userHolding.value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </div>
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="no-events">
-              <TrendingUp size={48} style={{ color: '#64748b', marginBottom: '16px' }} />
-              <p>No recent events</p>
-              <p style={{ fontSize: '14px', color: '#64748b' }}>
-                Check back later for relationship updates
-              </p>
+                <div className="position-stat">
+                  <div className="stat-label">Today's Change</div>
+                  <div className={`stat-value ${userHolding.dayChange >= 0 ? 'positive' : 'negative'}`}>
+                    {userHolding.dayChange >= 0 ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
+                    {userHolding.dayChange >= 0 ? '+' : ''}${Math.abs(userHolding.dayChange).toFixed(2)}
+                  </div>
+                </div>
+                <div className="position-stat">
+                  <div className="stat-label">Total Return</div>
+                  <div className={`stat-value ${isPositionPositive ? 'positive' : 'negative'}`}>
+                    {isPositionPositive ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
+                    {isPositionPositive ? '+' : ''}${Math.abs(totalReturn).toFixed(2)} ({isPositionPositive ? '+' : ''}{totalReturnPercent.toFixed(2)}%)
+                  </div>
+                </div>
+              </div>
+              
+              <div className="position-actions">
+                <button 
+                  className="portfolio-action-button primary"
+                  onClick={() => navigate('/portfolio')}
+                >
+                  <DollarSign size={16} />
+                  View Full Portfolio
+                </button>
+                <button 
+                  className="portfolio-action-button secondary"
+                  onClick={() => navigate(`/trade/${symbol}`)}
+                >
+                  Trade Position
+                </button>
+              </div>
             </div>
           )}
+
+          {/* No Position CTA */}
+          {!hasPosition && (
+            <div className="no-position-section">
+              <div style={{ 
+                background: '#1c2536', 
+                border: '1px solid #2d3748', 
+                borderRadius: '12px', 
+                padding: '24px',
+                textAlign: 'center',
+                marginBottom: '32px'
+              }}>
+                <PieChart size={48} style={{ color: '#64748b', marginBottom: '16px' }} />
+                <h3 style={{ color: '#ffffff', marginBottom: '8px' }}>You don't own this stock</h3>
+                <p style={{ color: '#64748b', marginBottom: '20px', fontSize: '14px' }}>
+                  Start investing in {relationship.couple} to track your position here
+                </p>
+                <button 
+                  className="portfolio-action-button primary"
+                  onClick={() => navigate(`/trade/${symbol}`)}
+                >
+                  Buy {relationship.symbol}
+                </button>
+              </div>
+            </div>
+          )}
+
+          <div className="relationship-stats">
+            <div className="stat-item">
+              <div className="stat-label">Volume</div>
+              <div className="stat-value">{relationship.volume.toLocaleString()}</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-label">Market Cap</div>
+              <div className="stat-value">${(relationship.price * relationship.volume / 1000000).toFixed(1)}M</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-label">Events</div>
+              <div className="stat-value">{relationship.events.length}</div>
+            </div>
+          </div>
+
+          <div className="events-section">
+            <h2>Recent Events</h2>
+            {relationship.events.length > 0 ? (
+              <div className="events-list">
+                {relationship.events.map(event => (
+                  <div key={event.id} className="event-item">
+                    <div className="event-icon" style={{ color: getEventColor(event.impact) }}>
+                      {getEventIcon(event.type)}
+                    </div>
+                    <div className="event-content">
+                      <div className="event-description">{event.description}</div>
+                      <div className="event-meta">
+                        <span className="event-time">
+                          {new Date(event.timestamp).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                          })}
+                        </span>
+                        {event.priceImpact && (
+                          <span className={`event-impact ${event.impact}`}>
+                            {event.priceImpact > 0 ? '+' : ''}${event.priceImpact.toFixed(2)}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="no-events">
+                <TrendingUp size={48} style={{ color: '#64748b', marginBottom: '16px' }} />
+                <p>No recent events</p>
+                <p style={{ fontSize: '14px', color: '#64748b' }}>
+                  Check back later for relationship updates
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Right Column - 70% */}
+        <div className="relationship-right-column">
+          <div className="chart-section" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <h2>Price Chart</h2>
+            <div style={{ flex: 1, marginTop: '20px', minHeight: '600px' }}>
+              <StockChart
+                data={relationship.chartData}
+                symbol={relationship.symbol}
+                color={isPositive ? '#00d4aa' : '#ff6b6b'}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
