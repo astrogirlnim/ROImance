@@ -1,0 +1,235 @@
+/* ROImance Design System - CSS Variables */
+/* Generated from design-tokens.json */
+
+:root {
+  /* Base Colors */
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+
+  /* Pastel Foundation */
+  --background: #f8f9fb;
+  --foreground: #2a2d36;
+  --card: #fafbfc;
+  --card-foreground: #2a2d36;
+  --popover: #fafbfc;
+  --popover-foreground: #2a2d36;
+  --muted: #f0f2f5;
+  --muted-foreground: #6b7280;
+  --accent: #ede8f5;
+  --accent-foreground: #2a2d36;
+  --border: #e1e5e9;
+  --input: #e1e5e9;
+  --ring: #a855f7;
+
+  /* Primary & Secondary */
+  --primary: #e8d5f0;
+  --primary-foreground: #2a2d36;
+  --secondary: #e3effa;
+  --secondary-foreground: #2a2d36;
+
+  /* Emotional Trading Colors */
+  --flirt-surge: #27ae60;
+  --flirt-surge-foreground: #ffffff;
+  --heartline-red: #e74c3c;
+  --heartline-red-foreground: #ffffff;
+  --trust-blue: #2980b9;
+  --trust-blue-foreground: #ffffff;
+  --breakdown-burgundy: #7f1d1d;
+  --breakdown-burgundy-foreground: #ffffff;
+  --risky-gold: #f1c40f;
+  --risky-gold-foreground: #2c3e50;
+  --black-candle: #2c3e50;
+  --black-candle-foreground: #ffffff;
+  --gray-mutuals: #95a5a6;
+  --gray-mutuals-foreground: #ffffff;
+  --blush-rebound: #f8c8dc;
+  --blush-rebound-foreground: #2c3e50;
+
+  /* Chart Colors */
+  --chart-1: #27ae60;
+  --chart-2: #2980b9;
+  --chart-3: #e74c3c;
+  --chart-4: #f1c40f;
+  --chart-5: #7f1d1d;
+
+  /* Status Colors */
+  --success: #27ae60;
+  --success-foreground: #ffffff;
+  --warning: #f1c40f;
+  --warning-foreground: #2c3e50;
+  --destructive: #e74c3c;
+  --destructive-foreground: #ffffff;
+
+  /* Emotional States */
+  --early-attraction: #27ae60;
+  --passion-peak: #e74c3c;
+  --stable-bond: #2980b9;
+  --emotional-dip: #7f1d1d;
+  --volatility: #f1c40f;
+  --heartbreak: #2c3e50;
+  --recovery: #95a5a6;
+  --new-hope: #f8c8dc;
+
+  /* Component Colors */
+  
+  /* Button Variants */
+  --button-primary-bg: #2980b9;
+  --button-primary-fg: #ffffff;
+  --button-primary-hover: #1f618d;
+  
+  --button-buy-bg: #27ae60;
+  --button-buy-fg: #ffffff;
+  --button-buy-hover: #1e8449;
+  
+  --button-sell-bg: #e74c3c;
+  --button-sell-fg: #ffffff;
+  --button-sell-hover: #c0392b;
+  
+  --button-warning-bg: #f1c40f;
+  --button-warning-fg: #2c3e50;
+  --button-warning-hover: #d4ac0d;
+  
+  --button-destructive-bg: #7f1d1d;
+  --button-destructive-fg: #ffffff;
+  --button-destructive-hover: #641e16;
+  
+  --button-ghost-bg: transparent;
+  --button-ghost-fg: #2c3e50;
+  --button-ghost-hover: #f8c8dc;
+  
+  --button-recovery-bg: #95a5a6;
+  --button-recovery-fg: #ffffff;
+  --button-recovery-hover: #7b7d7d;
+
+  /* Input Colors */
+  --input-bg: #ffffff;
+  --input-border: #95a5a6;
+  --input-border-focus: #2980b9;
+  --input-fg: #2c3e50;
+  --input-placeholder: #95a5a6;
+
+  /* Navigation Colors */
+  --nav-bg: #ffffff;
+  --nav-fg: #2c3e50;
+  --nav-border: #f8c8dc;
+  --nav-active: #2980b9;
+  --nav-hover: #f8c8dc;
+
+  /* Card Colors */
+  --card-bg: #ffffff;
+  --card-border: #f8c8dc;
+  --card-fg: #2c3e50;
+  --card-muted: #95a5a6;
+  
+  --card-profit-border: #27ae60;
+  --card-profit-accent: #27ae60;
+  --card-loss-border: #e74c3c;
+  --card-loss-accent: #e74c3c;
+  --card-neutral-border: #95a5a6;
+  --card-neutral-accent: #95a5a6;
+  --card-volatile-border: #f1c40f;
+  --card-volatile-accent: #f1c40f;
+
+  /* Badge Colors */
+  --badge-flirt-bg: #27ae60;
+  --badge-flirt-fg: #ffffff;
+  --badge-passion-bg: #e74c3c;
+  --badge-passion-fg: #ffffff;
+  --badge-stable-bg: #2980b9;
+  --badge-stable-fg: #ffffff;
+  --badge-risky-bg: #f1c40f;
+  --badge-risky-fg: #2c3e50;
+  --badge-breakdown-bg: #7f1d1d;
+  --badge-breakdown-fg: #ffffff;
+  --badge-recovery-bg: #95a5a6;
+  --badge-recovery-fg: #ffffff;
+  --badge-rebound-bg: #f8c8dc;
+  --badge-rebound-fg: #2c3e50;
+
+  /* Chart Colors */
+  --chart-grid: #f8c8dc;
+  --chart-axis: #95a5a6;
+  --chart-tooltip-bg: #ffffff;
+  --chart-tooltip-border: #95a5a6;
+  --chart-tooltip-fg: #2c3e50;
+
+  /* Alert Colors */
+  --alert-success-bg: #f0f9f4;
+  --alert-success-border: #27ae60;
+  --alert-success-fg: #1e8449;
+  
+  --alert-warning-bg: #fef9e7;
+  --alert-warning-border: #f1c40f;
+  --alert-warning-fg: #b7950b;
+  
+  --alert-error-bg: #fdf2f2;
+  --alert-error-border: #e74c3c;
+  --alert-error-fg: #c0392b;
+  
+  --alert-info-bg: #f0f8ff;
+  --alert-info-border: #2980b9;
+  --alert-info-fg: #1f618d;
+}
+
+/* Dark Mode */
+.dark {
+  --background: #111318;
+  --foreground: #f1f5f9;
+  --card: #1a1d23;
+  --card-foreground: #f1f5f9;
+  --popover: #1a1d23;
+  --popover-foreground: #f1f5f9;
+  --primary: #bb86fc;
+  --primary-foreground: #111318;
+  --secondary: #2d3748;
+  --secondary-foreground: #f1f5f9;
+  --muted: #262b36;
+  --muted-foreground: #a1a1aa;
+  --accent: #374151;
+  --accent-foreground: #f1f5f9;
+  --border: #374151;
+  --input: #374151;
+  --ring: #bb86fc;
+  
+  /* Dark mode adjustments for emotional colors remain vibrant */
+  --nav-bg: #1a1d23;
+  --nav-fg: #f1f5f9;
+  --card-bg: #1a1d23;
+  --card-fg: #f1f5f9;
+  --input-bg: #374151;
+  --input-fg: #f1f5f9;
+}
+
+/* Utility Classes for Direct Use */
+.text-flirt-surge { color: var(--flirt-surge); }
+.bg-flirt-surge { background-color: var(--flirt-surge); }
+.border-flirt-surge { border-color: var(--flirt-surge); }
+
+.text-heartline-red { color: var(--heartline-red); }
+.bg-heartline-red { background-color: var(--heartline-red); }
+.border-heartline-red { border-color: var(--heartline-red); }
+
+.text-trust-blue { color: var(--trust-blue); }
+.bg-trust-blue { background-color: var(--trust-blue); }
+.border-trust-blue { border-color: var(--trust-blue); }
+
+.text-risky-gold { color: var(--risky-gold); }
+.bg-risky-gold { background-color: var(--risky-gold); }
+.border-risky-gold { border-color: var(--risky-gold); }
+
+.text-breakdown-burgundy { color: var(--breakdown-burgundy); }
+.bg-breakdown-burgundy { background-color: var(--breakdown-burgundy); }
+.border-breakdown-burgundy { border-color: var(--breakdown-burgundy); }
+
+.text-black-candle { color: var(--black-candle); }
+.bg-black-candle { background-color: var(--black-candle); }
+.border-black-candle { border-color: var(--black-candle); }
+
+.text-gray-mutuals { color: var(--gray-mutuals); }
+.bg-gray-mutuals { background-color: var(--gray-mutuals); }
+.border-gray-mutuals { border-color: var(--gray-mutuals); }
+
+.text-blush-rebound { color: var(--blush-rebound); }
+.bg-blush-rebound { background-color: var(--blush-rebound); }
+.border-blush-rebound { border-color: var(--blush-rebound); }
