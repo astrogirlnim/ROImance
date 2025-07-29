@@ -6,6 +6,7 @@ import './App.css';
 import Dashboard from './components/Dashboard';
 import RelationshipView from './components/RelationshipView';
 import Portfolio from './components/Portfolio';
+import TradingPage from './components/TradingPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/relationship/:symbol" element={<RelationshipView />} />
+          <Route path="/trade/:symbol" element={<TradingPage />} />
         </Routes>
       </div>
     </Router>
