@@ -16,11 +16,11 @@ Phases Overview
 ### Phase 1 – Foundation
 *Criteria: Essential scaffolding the application cannot function without. Features here have no cross-dependencies.*
 
-[~] **Feature 1 – Initialise full-stack monorepo**  
-  [ ] Create a Git repository with root ESLint/Prettier configuration.  
+[x] **Feature 1 – Initialise full-stack monorepo**  
+  [x] Create a Git repository with root ESLint/Prettier configuration.  
   [x] Scaffold a Vite + React-TypeScript frontend.  
-  [ ] Scaffold an Express-TypeScript backend in a separate folder.  
-  [ ] Add shared `npm` scripts for dev, build, and lint in the root `package.json`.
+  [x] Scaffold an Express-TypeScript backend in a separate folder.  
+  [x] Add shared `npm` scripts for dev, build, and lint in the root `package.json`.
 
 [ ] **Feature 2 – Configure database & environment**  
   [ ] Add a Docker Compose file that starts a Postgres instance.  
