@@ -159,6 +159,7 @@ const RelationshipView: React.FC = () => {
             <p style={{ color: '#64748b', marginBottom: '20px', fontSize: '14px' }}>
               Start investing in {relationship.couple} to track your position here
             </p>
+
             <button 
               className="portfolio-action-button primary"
               onClick={() => navigate(`/trade/${symbol}`)}

@@ -35,23 +35,29 @@
       "foreground": "oklch(0.15 0.02 220)"
     },
     "trading": {
-      "profit": "oklch(0.65 0.15 140)",
-      "profit-foreground": "oklch(0.98 0.01 140)",
-      "loss": "oklch(0.62 0.18 25)",
-      "loss-foreground": "oklch(0.98 0.01 25)",
-      "neutral": "oklch(0.60 0.05 220)",
-      "neutral-foreground": "oklch(0.98 0.01 220)",
-      "buy": "oklch(0.55 0.20 140)",
-      "buy-foreground": "oklch(0.98 0.01 140)",
-      "sell": "oklch(0.55 0.20 25)",
-      "sell-foreground": "oklch(0.98 0.01 25)"
+      "flirt-surge": "#27ae60",
+      "flirt-surge-foreground": "#ffffff",
+      "heartline-red": "#e74c3c", 
+      "heartline-red-foreground": "#ffffff",
+      "trust-blue": "#2980b9",
+      "trust-blue-foreground": "#ffffff",
+      "breakdown-burgundy": "#7f1d1d",
+      "breakdown-burgundy-foreground": "#ffffff",
+      "risky-gold": "#f1c40f",
+      "risky-gold-foreground": "#2c3e50",
+      "black-candle": "#2c3e50",
+      "black-candle-foreground": "#ffffff",
+      "gray-mutuals": "#95a5a6",
+      "gray-mutuals-foreground": "#ffffff",
+      "blush-rebound": "#f8c8dc",
+      "blush-rebound-foreground": "#2c3e50"
     },
     "charts": {
-      "chart-1": "oklch(0.55 0.22 41)",
-      "chart-2": "oklch(0.60 0.18 185)",
-      "chart-3": "oklch(0.65 0.20 320)",
-      "chart-4": "oklch(0.58 0.25 270)",
-      "chart-5": "oklch(0.62 0.15 140)"
+      "chart-1": "#27ae60",
+      "chart-2": "#2980b9", 
+      "chart-3": "#e74c3c",
+      "chart-4": "#f1c40f",
+      "chart-5": "#7f1d1d"
     },
     "status": {
       "success": "oklch(0.65 0.15 140)",
@@ -185,29 +191,174 @@
         "sm": "0.5rem 0.75rem",
         "md": "0.75rem 1rem",
         "lg": "1rem 1.5rem"
+      },
+      "variants": {
+        "primary": {
+          "background": "#2980b9",
+          "foreground": "#ffffff",
+          "hover": "#1f618d"
+        },
+        "buy": {
+          "background": "#27ae60",
+          "foreground": "#ffffff",
+          "hover": "#1e8449"
+        },
+        "sell": {
+          "background": "#e74c3c",
+          "foreground": "#ffffff",
+          "hover": "#c0392b"
+        },
+        "warning": {
+          "background": "#f1c40f",
+          "foreground": "#2c3e50",
+          "hover": "#d4ac0d"
+        },
+        "destructive": {
+          "background": "#7f1d1d",
+          "foreground": "#ffffff",
+          "hover": "#641e16"
+        },
+        "ghost": {
+          "background": "transparent",
+          "foreground": "#2c3e50",
+          "hover": "#f8c8dc"
+        },
+        "recovery": {
+          "background": "#95a5a6",
+          "foreground": "#ffffff",
+          "hover": "#7b7d7d"
+        }
       }
     },
     "input": {
       "height": "2.5rem",
-      "padding": "0.5rem 0.75rem"
+      "padding": "0.5rem 0.75rem",
+      "colors": {
+        "background": "#ffffff",
+        "border": "#95a5a6",
+        "border-focus": "#2980b9",
+        "foreground": "#2c3e50",
+        "placeholder": "#95a5a6"
+      }
     },
     "nav": {
       "height": "4rem",
-      "padding": "0 1rem"
+      "padding": "0 1rem",
+      "colors": {
+        "background": "#ffffff",
+        "foreground": "#2c3e50",
+        "border": "#f8c8dc",
+        "active": "#2980b9",
+        "hover": "#f8c8dc"
+      }
+    },
+    "card": {
+      "colors": {
+        "background": "#ffffff",
+        "border": "#f8c8dc",
+        "foreground": "#2c3e50",
+        "muted": "#95a5a6"
+      },
+      "variants": {
+        "profit": {
+          "border": "#27ae60",
+          "accent": "#27ae60"
+        },
+        "loss": {
+          "border": "#e74c3c",
+          "accent": "#e74c3c"
+        },
+        "neutral": {
+          "border": "#95a5a6",
+          "accent": "#95a5a6"
+        },
+        "volatile": {
+          "border": "#f1c40f",
+          "accent": "#f1c40f"
+        }
+      }
+    },
+    "badge": {
+      "variants": {
+        "flirt": {
+          "background": "#27ae60",
+          "foreground": "#ffffff"
+        },
+        "passion": {
+          "background": "#e74c3c",
+          "foreground": "#ffffff"
+        },
+        "stable": {
+          "background": "#2980b9",
+          "foreground": "#ffffff"
+        },
+        "risky": {
+          "background": "#f1c40f",
+          "foreground": "#2c3e50"
+        },
+        "breakdown": {
+          "background": "#7f1d1d",
+          "foreground": "#ffffff"
+        },
+        "recovery": {
+          "background": "#95a5a6",
+          "foreground": "#ffffff"
+        },
+        "rebound": {
+          "background": "#f8c8dc",
+          "foreground": "#2c3e50"
+        }
+      }
+    },
+    "chart": {
+      "colors": {
+        "grid": "#f8c8dc",
+        "axis": "#95a5a6",
+        "tooltip-background": "#ffffff",
+        "tooltip-border": "#95a5a6",
+        "tooltip-foreground": "#2c3e50"
+      }
+    },
+    "alert": {
+      "variants": {
+        "success": {
+          "background": "#f0f9f4",
+          "border": "#27ae60",
+          "foreground": "#1e8449"
+        },
+        "warning": {
+          "background": "#fef9e7",
+          "border": "#f1c40f",
+          "foreground": "#b7950b"
+        },
+        "error": {
+          "background": "#fdf2f2",
+          "border": "#e74c3c",
+          "foreground": "#c0392b"
+        },
+        "info": {
+          "background": "#f0f8ff",
+          "border": "#2980b9",
+          "foreground": "#1f618d"
+        }
+      }
     }
   },
   "semanticColors": {
-    "relationship": {
-      "single": "oklch(0.70 0.12 280)",
-      "dating": "oklch(0.68 0.15 320)",
-      "committed": "oklch(0.65 0.15 140)",
-      "married": "oklch(0.60 0.18 41)",
-      "complicated": "oklch(0.62 0.18 25)"
+    "emotionalStates": {
+      "early-attraction": "#27ae60",
+      "passion-peak": "#e74c3c",
+      "stable-bond": "#2980b9", 
+      "emotional-dip": "#7f1d1d",
+      "volatility": "#f1c40f",
+      "heartbreak": "#2c3e50",
+      "recovery": "#95a5a6",
+      "new-hope": "#f8c8dc"
     },
     "metrics": {
-      "aph": "oklch(0.55 0.22 41)",
-      "ccr": "oklch(0.60 0.18 185)", 
-      "dnii": "oklch(0.65 0.20 320)"
+      "aph": "#27ae60",
+      "ccr": "#2980b9", 
+      "dnii": "#e74c3c"
     }
   }
 }
