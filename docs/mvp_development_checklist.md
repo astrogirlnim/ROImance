@@ -16,9 +16,9 @@ Phases Overview
 ### Phase 1 – Foundation
 *Criteria: Essential scaffolding the application cannot function without. Features here have no cross-dependencies.*
 
-[ ] **Feature 1 – Initialise full-stack monorepo**  
+[~] **Feature 1 – Initialise full-stack monorepo**  
   [ ] Create a Git repository with root ESLint/Prettier configuration.  
-  [ ] Scaffold a Vite + React-TypeScript frontend.  
+  [x] Scaffold a Vite + React-TypeScript frontend.  
   [ ] Scaffold an Express-TypeScript backend in a separate folder.  
   [ ] Add shared `npm` scripts for dev, build, and lint in the root `package.json`.
 
@@ -34,11 +34,11 @@ Phases Overview
   [ ] Provide a logout route that clears the session cookie.  
   [ ] Write minimal in-memory user repository (no persistent users required).
 
-[ ] **Feature 4 – Global UI baseline**  
+[~] **Feature 4 – Global UI baseline**  
   [ ] Install ShadCN component library and configure theme tokens.  
   [ ] Set up React Router with routes for Hero, Portfolio, Stock View, and Profile pages.  
-  [ ] Implement a responsive top-nav layout shell used by all pages.  
-  [ ] Add global CSS (+reset) and colour palette aligning with the “pastel base with bold chart colours” aesthetic.
+  [x] Implement a responsive top-nav layout shell used by all pages.  
+  [x] Add global CSS (+reset) and colour palette aligning with the "pastel base with bold chart colours" aesthetic.
 
 ---
 ### Phase 2 – Data Layer
@@ -78,11 +78,11 @@ Phases Overview
   [ ] Display disclaimer banner that all entered data is public.  
   [ ] Add subtle comic tone while maintaining professional styling.
 
-[ ] **Feature 2 – Portfolio dashboard UI**  
-  [ ] Render EC price history using ChartJS line chart.  
+[~] **Feature 2 – Portfolio dashboard UI**  
+  [x] Render EC price history using ChartJS line chart.  
   [ ] Show computed APH, CCR, DNII metrics in a ShadCN card grid.  
   [ ] Provide “Log transaction” button that opens a modal form.  
-  [ ] Ensure layout is mobile-first responsive.
+  [x] Ensure layout is mobile-first responsive.
 
 [ ] **Feature 3 – Stock View page UI**  
   [ ] Display real-time order book depth chart (ChartJS bar chart).  
