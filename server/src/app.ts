@@ -2,17 +2,12 @@ import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import dotenv from 'dotenv'
-import { connectDatabase } from './services/database.js'
 import transactionRoutes from './routes/transactions.js'
 import relationshipRoutes from './routes/relationships.js'
 import orderRoutes from './routes/orders.js'
 import leaderboardRoutes from './routes/leaderboard.js'
 
-dotenv.config()
-
 const app = express()
-const PORT = process.env.PORT || 3001
 
 // Middleware
 app.use(helmet())
@@ -46,15 +41,4 @@ app.use('*', (req, res) => {
   res.status(404).json({ error: 'Route not found' })
 })
 
-app.listen(PORT, async () => {
-  console.log(`🚀 Server running on port ${PORT}`)
-  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`)
-  
-  // Connect to database
-  try {
-    await connectDatabase()
-  } catch (error) {
-    console.error('Failed to connect to database:', error)
-    process.exit(1)
-  }
-})
+export default app

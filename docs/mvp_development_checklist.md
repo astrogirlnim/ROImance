@@ -8,7 +8,7 @@ This checklist translates the R.O.I.mance PRD into a phased, dependency-aware im
 Phases Overview
 ---------------
 [ ] **Phase 1: Foundation**  
-[ ] **Phase 2: Data Layer**  
+[x] **Phase 2: Data Layer**  
 [ ] **Phase 3: Interface Layer**  
 [ ] **Phase 4: Implementation Layer**
 
@@ -44,29 +44,29 @@ Phases Overview
 ### Phase 2 – Data Layer
 *Criteria: Schemas, queries, and endpoints for storing and retrieving application data. Each feature depends on Phase 1 completion.*
 
-[ ] **Feature 1 – Transaction data model & API**  
-  [ ] Add a `transactions` table: `id`, `relationship_id`, `amount_ec`, `is_credit`, `note`, `timestamp`.  
-  [ ] Create CRUD Express routes under `/api/transactions`.  
-  [ ] Write unit tests asserting create, read, and list behaviours.  
-  [ ] Document request/response JSON in inline JSDoc.
+[x] **Feature 1 – Transaction data model & API**  
+  [x] Add a `transactions` table: `id`, `relationship_id`, `amount_ec`, `is_credit`, `note`, `timestamp`.  
+  [x] Create CRUD Express routes under `/api/transactions`.  
+  [x] Write unit tests asserting create, read, and list behaviours.  
+  [x] Document request/response JSON in inline JSDoc.
 
-[ ] **Feature 2 – Relationship & metrics model**  
-  [ ] Add `relationships` table: `id`, `name`, `created_at`.  
-  [ ] Store daily EC price snapshots in `relationship_prices` table.  
-  [ ] Implement server-side functions to compute APH, CCR, and DNII metrics.  
-  [ ] Expose `/api/relationships/:id/metrics` endpoint returning latest metrics & history.
+[x] **Feature 2 – Relationship & metrics model**  
+  [x] Add `relationships` table: `id`, `name`, `created_at`.  
+  [x] Store daily EC price snapshots in `relationship_prices` table.  
+  [x] Implement server-side functions to compute APH, CCR, and DNII metrics.  
+  [x] Expose `/api/relationships/:id/metrics` endpoint returning latest metrics & history.
 
-[ ] **Feature 3 – Market order model & API**  
-  [ ] Add `orders` table: `id`, `relationship_id`, `user`, `side`, `shares`, `price`, `timestamp`.  
-  [ ] Provide endpoints `/api/orders` for placing and listing buy/sell orders.  
-  [ ] Persist completed trades in `trades` table with matcher stub (matching logic implemented later).  
-  [ ] Return order-book snapshot aggregated by price level.
+[x] **Feature 3 – Market order model & API**  
+  [x] Add `orders` table: `id`, `relationship_id`, `user`, `side`, `shares`, `price`, `timestamp`.  
+  [x] Provide endpoints `/api/orders` for placing and listing buy/sell orders.  
+  [x] Persist completed trades in `trades` table with matcher stub (matching logic implemented later).  
+  [x] Return order-book snapshot aggregated by price level.
 
-[ ] **Feature 4 – Public profile & leaderboard data**  
-  [ ] Expose `/api/relationships/public` returning all relationships with latest EC value.  
-  [ ] Implement `/api/leaderboard` that ranks relationships by EC growth over configurable window.  
-  [ ] Add simple caching layer (in-memory) for leaderboard responses.  
-  [ ] Ensure all endpoints respect “all data public” rule; no auth checks required for GET.
+[x] **Feature 4 – Public profile & leaderboard data**  
+  [x] Expose `/api/relationships/public` returning all relationships with latest EC value.  
+  [x] Implement `/api/leaderboard` that ranks relationships by EC growth over configurable window.  
+  [x] Add simple caching layer (in-memory) for leaderboard responses.  
+  [x] Ensure all endpoints respect “all data public” rule; no auth checks required for GET.
 
 ---
 ### Phase 3 – Interface Layer
