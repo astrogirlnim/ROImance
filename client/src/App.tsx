@@ -6,6 +6,7 @@ import './App.css';
 import Dashboard from './components/Dashboard';
 import RelationshipView from './components/RelationshipView';
 import Portfolio from './components/Portfolio';
+import ExampleColorUsage from './components/ExampleColorUsage';
 
 function App() {
   return (
