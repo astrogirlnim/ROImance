@@ -133,7 +133,10 @@ const RelationshipView: React.FC = () => {
               <DollarSign size={16} />
               View Full Portfolio
             </button>
-            <button className="portfolio-action-button secondary">
+            <button 
+              className="portfolio-action-button secondary"
+              onClick={() => navigate(`/trade/${symbol}`)}
+            >
               Trade Position
             </button>
           </div>
@@ -156,7 +159,11 @@ const RelationshipView: React.FC = () => {
             <p style={{ color: '#64748b', marginBottom: '20px', fontSize: '14px' }}>
               Start investing in {relationship.couple} to track your position here
             </p>
-            <button className="portfolio-action-button primary">
+
+            <button 
+              className="portfolio-action-button primary"
+              onClick={() => navigate(`/trade/${symbol}`)}
+            >
               Buy {relationship.symbol}
             </button>
           </div>
