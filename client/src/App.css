@@ -441,6 +441,79 @@ body {
   font-weight: bold;
 }
 
+.relationship-main-content {
+  display: flex;
+  gap: 32px;
+  margin-top: 32px;
+  height: calc(100vh - 200px);
+}
+
+.relationship-left-column {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow-y: auto;
+}
+
+.relationship-right-column {
+  flex: 0 0 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adjust styles for left column content */
+.relationship-left-column .relationship-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #1c2536;
+  border: 1px solid #2d3748;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.relationship-left-column .relationship-info h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.relationship-left-column .relationship-price {
+  text-align: left;
+}
+
+.relationship-left-column .current-price {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.relationship-left-column .relationship-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.relationship-left-column .stat-item {
+  background: #1c2536;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.relationship-left-column .events-section h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.relationship-left-column .event-item {
+  padding: 16px;
+}
+
+.relationship-left-column .event-description {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
 .relationship-content {
   display: grid;
   grid-template-columns: 2.5fr 1fr;
