@@ -33,11 +33,21 @@ const Dashboard: React.FC = () => {
     navigate(`/relationship/${stock.symbol}`);
   };
 
+  const handleNavItemClick = (item: string) => {
+    setActiveNavItem(item);
+    if (item === 'portfolio') {
+      navigate('/portfolio');
+    } else if (item === 'dashboard') {
+      navigate('/');
+    }
+    // Add other navigation logic here as needed
+  };
+
   return (
     <>
       <Sidebar 
         activeItem={activeNavItem} 
-        onItemClick={setActiveNavItem} 
+        onItemClick={handleNavItemClick} 
       />
       
       <div className="main-content">

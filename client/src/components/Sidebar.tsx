@@ -17,13 +17,8 @@ interface SidebarProps {
 
 const navigationItems = [
   { id: 'dashboard', label: 'Dashboard', icon: Home },
-  { id: 'stocks', label: 'Stocks', icon: TrendingUp },
   { id: 'portfolio', label: 'Portfolio', icon: PieChart },
-  { id: 'watchlist', label: 'Watchlist', icon: Star },
-  { id: 'markets', label: 'Markets', icon: BarChart3 },
   { id: 'discover', label: 'Discover', icon: Search },
-  { id: 'cards', label: 'Cards', icon: CreditCard },
-  { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
 const Sidebar: React.FC<SidebarProps> = ({ activeItem, onItemClick }) => {
