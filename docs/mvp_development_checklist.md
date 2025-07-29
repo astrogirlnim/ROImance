@@ -22,11 +22,11 @@ Phases Overview
   [x] Scaffold an Express-TypeScript backend in a separate folder.  
   [x] Add shared `npm` scripts for dev, build, and lint in the root `package.json`.
 
-[ ] **Feature 2 – Configure database & environment**  
-  [ ] Add a Docker Compose file that starts a Postgres instance.  
-  [ ] Create `.env.example` documenting DB connection variables.  
-  [ ] Introduce a migration tool (e.g. Prisma or Knex) and initialise the migration folder.  
-  [ ] Verify backend connects to Postgres using env vars at server start-up.
+[x] **Feature 2 – Configure database & environment**  
+  [x] Add a Docker Compose file that starts a Postgres instance.  
+  [x] Create `.env.example` documenting DB connection variables.  
+  [x] Introduce a migration tool (e.g. Prisma or Knex) and initialise the migration folder.  
+  [x] Verify backend connects to Postgres using env vars at server start-up.
 
 [ ] **Feature 3 – Fake username-only authentication**  
   [ ] Implement a `/login` endpoint that accepts a plain username and issues a signed cookie session.  
@@ -36,7 +36,7 @@ Phases Overview
 
 [~] **Feature 4 – Global UI baseline**  
   [ ] Install ShadCN component library and configure theme tokens.  
-  [ ] Set up React Router with routes for Hero, Portfolio, Stock View, and Profile pages.  
+  [x] Set up React Router with routes for Hero, Portfolio, Stock View, and Profile pages.  
   [x] Implement a responsive top-nav layout shell used by all pages.  
   [x] Add global CSS (+reset) and colour palette aligning with the "pastel base with bold chart colours" aesthetic.
 
