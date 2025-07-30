@@ -1,15 +1,27 @@
 /* Styles for the LandingPage component */
 
 .landing-page {
+  /* Override parent flex layout and take full viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  
+  /* Center content */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  
+  /* Background image styling */
   background-image: url('/Landing_page_bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  
+  /* Text styling */
   color: #ffffff;
   padding: 20px;
 }
