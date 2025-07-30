@@ -15,7 +15,7 @@ const RelationshipView: React.FC = () => {
   if (!relationship) {
     return (
       <div className="relationship-view">
-        <button onClick={() => navigate('/')} className="back-button">
+        <button type="button" onClick={() => navigate('/')} className="back-button">
           <ArrowLeft size={20} />
           Back to Dashboard
         </button>
@@ -61,139 +61,132 @@ const RelationshipView: React.FC = () => {
   };
 
   return (
-    <div className="relationship-view">
-      <button onClick={() => navigate('/')} className="back-button">
-        <ArrowLeft size={20} />
-        Back to Dashboard
-      </button>
+    <div className="relationship-view-container">
+      {/* Left Column - 25% width */}
+      <div className="relationship-left-column">
+        <button type="button" onClick={() => navigate('/')} className="back-button">
+          <ArrowLeft size={20} />
+          Back to Dashboard
+        </button>
 
-      <div className="relationship-header">
-        <div className="relationship-info">
-          <h1 className="relationship-title">{relationship.couple}</h1>
-          <div className="relationship-symbol">{relationship.symbol}</div>
-          <div className="relationship-status-badge" data-status={relationship.relationshipStatus.toLowerCase().replace(' ', '-')}>
-            {relationship.relationshipStatus}
-          </div>
-        </div>
-        
-        <div className="relationship-price">
-          <div className="current-price">
-            ${relationship.price.toFixed(2)}
-          </div>
-          <div className={`price-change ${isPositive ? 'positive' : 'negative'}`}>
-            {isPositive ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
-            {isPositive ? '+' : ''}${Math.abs(relationship.change).toFixed(2)} 
-            ({isPositive ? '+' : ''}{relationship.changePercent.toFixed(2)}%)
-          </div>
-        </div>
-      </div>
-
-      {/* Portfolio Position Section */}
-      {hasPosition && (
-        <div className="portfolio-position-section">
-          <div className="position-header">
-            <h3 className="position-header-title">
-              <PieChart size={20} className="position-icon" />
-              Your Position
-            </h3>
-          </div>
-          
-          <div className="position-stats-grid">
-            <div className="position-stat">
-              <div className="stat-label">Shares Owned</div>
-              <div className="stat-value">{userHolding.shares}</div>
-            </div>
-            <div className="position-stat">
-              <div className="stat-label">Market Value</div>
-              <div className="stat-value">
-                ${userHolding.value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-              </div>
-            </div>
-            <div className="position-stat">
-              <div className="stat-label">Today's Change</div>
-              <div className={`stat-value ${userHolding.dayChange >= 0 ? 'positive' : 'negative'}`}>
-                {userHolding.dayChange >= 0 ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
-                {userHolding.dayChange >= 0 ? '+' : ''}${Math.abs(userHolding.dayChange).toFixed(2)}
-              </div>
-            </div>
-            <div className="position-stat">
-              <div className="stat-label">Total Return</div>
-              <div className={`stat-value ${isPositionPositive ? 'positive' : 'negative'}`}>
-                {isPositionPositive ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
-                {isPositionPositive ? '+' : ''}${Math.abs(totalReturn).toFixed(2)} ({isPositionPositive ? '+' : ''}{totalReturnPercent.toFixed(2)}%)
-              </div>
+        <div className="relationship-header">
+          <div className="relationship-info">
+            <h1 className="relationship-title">{relationship.couple}</h1>
+            <div className="relationship-symbol">{relationship.symbol}</div>
+            <div className="relationship-status-badge" data-status={relationship.relationshipStatus.toLowerCase().replace(' ', '-')}>
+              {relationship.relationshipStatus}
             </div>
           </div>
           
-          <div className="position-actions">
-            <button 
-              className="portfolio-action-button primary"
-              onClick={() => navigate('/portfolio')}
-            >
-              <DollarSign size={16} />
-              View Full Portfolio
-            </button>
-            <button 
-              className="portfolio-action-button secondary"
-              onClick={() => navigate(`/trade/${symbol}`)}
-            >
-              Trade Position
-            </button>
+          <div className="relationship-price">
+            <div className="current-price">
+              ${relationship.price.toFixed(2)}
+            </div>
+            <div className={`price-change ${isPositive ? 'positive' : 'negative'}`}>
+              {isPositive ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
+              {isPositive ? '+' : ''}${Math.abs(relationship.change).toFixed(2)} 
+              ({isPositive ? '+' : ''}{relationship.changePercent.toFixed(2)}%)
+            </div>
           </div>
         </div>
-      )}
 
-      {/* No Position CTA */}
-      {!hasPosition && (
-        <div className="no-position-section">
-          <div style={{ 
-            background: 'var(--card)', 
-            border: '1px solid var(--border)', 
-            borderRadius: '12px', 
-            padding: '24px',
-            textAlign: 'center',
-            marginBottom: '32px'
-          }}>
-            <PieChart size={48} style={{ color: 'var(--muted-foreground)', marginBottom: '16px' }} />
-            <h3 style={{ color: 'var(--foreground)', marginBottom: '8px' }}>You don't own this stock</h3>
-            <p style={{ color: 'var(--muted-foreground)', marginBottom: '20px', fontSize: '14px' }}>
-              Start investing in {relationship.couple} to track your position here
-            </p>
-
-            <button 
-              className="portfolio-action-button primary"
-              onClick={() => navigate(`/trade/${symbol}`)}
-            >
-              Buy {relationship.symbol}
-            </button>
+        {/* Portfolio Position Section */}
+        {hasPosition && (
+          <div className="portfolio-position-section">
+            <div className="position-header">
+              <h3 className="position-header-title">
+                <PieChart size={20} className="position-icon" />
+                Your Position
+              </h3>
+            </div>
+            
+            <div className="position-stats-grid">
+              <div className="position-stat">
+                <div className="stat-label">Shares Owned</div>
+                <div className="stat-value">{userHolding.shares}</div>
+              </div>
+              <div className="position-stat">
+                <div className="stat-label">Market Value</div>
+                <div className="stat-value">
+                  ${userHolding.value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                </div>
+              </div>
+              <div className="position-stat">
+                <div className="stat-label">Today's Change</div>
+                <div className={`stat-value ${userHolding.dayChange >= 0 ? 'positive' : 'negative'}`}>
+                  {userHolding.dayChange >= 0 ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
+                  {userHolding.dayChange >= 0 ? '+' : ''}${Math.abs(userHolding.dayChange).toFixed(2)}
+                </div>
+              </div>
+              <div className="position-stat">
+                <div className="stat-label">Total Return</div>
+                <div className={`stat-value ${isPositionPositive ? 'positive' : 'negative'}`}>
+                  {isPositionPositive ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
+                  {isPositionPositive ? '+' : ''}${Math.abs(totalReturn).toFixed(2)} ({isPositionPositive ? '+' : ''}{totalReturnPercent.toFixed(2)}%)
+                </div>
+              </div>
+            </div>
+            
+            <div className="position-actions">
+              <button 
+                type="button"
+                className="portfolio-action-button primary"
+                onClick={() => navigate('/portfolio')}
+              >
+                <DollarSign size={16} />
+                View Full Portfolio
+              </button>
+              <button 
+                type="button"
+                className="portfolio-action-button secondary"
+                onClick={() => navigate(`/trade/${symbol}`)}
+              >
+                Trade Position
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      <div className="relationship-stats">
-        <div className="stat-item">
-          <div className="stat-label">Volume</div>
-          <div className="stat-value">{relationship.volume.toLocaleString()}</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-label">Market Cap</div>
-          <div className="stat-value">${(relationship.price * relationship.volume / 1000000).toFixed(1)}M</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-label">Events</div>
-          <div className="stat-value">{relationship.events.length}</div>
-        </div>
-      </div>
+        {/* No Position CTA */}
+        {!hasPosition && (
+          <div className="no-position-section">
+            <div style={{ 
+              background: 'var(--card)', 
+              border: '1px solid var(--border)', 
+              borderRadius: '12px', 
+              padding: '24px',
+              textAlign: 'center',
+              marginBottom: '32px'
+            }}>
+              <PieChart size={48} style={{ color: 'var(--muted-foreground)', marginBottom: '16px' }} />
+              <h3 style={{ color: 'var(--foreground)', marginBottom: '8px' }}>You don't own this stock</h3>
+              <p style={{ color: 'var(--muted-foreground)', marginBottom: '20px', fontSize: '14px' }}>
+                Start investing in {relationship.couple} to track your position here
+              </p>
 
-      <div className="relationship-content">
-        <div className="chart-section">
-          <h2>Price Chart</h2>
-          <div style={{ height: '600px', marginTop: '20px' }}>
-            <StockChart
-              data={relationship.chartData}
-              symbol={relationship.symbol}
-              color={isPositive ? 'var(--flirt-surge)' : 'var(--heartline-red)'}
-            />
+              <button 
+                type="button"
+                className="portfolio-action-button primary"
+                onClick={() => navigate(`/trade/${symbol}`)}
+              >
+                Buy {relationship.symbol}
+              </button>
+            </div>
+          </div>
+        )}
+
+        <div className="relationship-stats">
+          <div className="stat-item">
+            <div className="stat-label">Volume</div>
+            <div className="stat-value">{relationship.volume.toLocaleString()}</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-label">Market Cap</div>
+            <div className="stat-value">${(relationship.price * relationship.volume / 1000000).toFixed(1)}M</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-label">Events</div>
+            <div className="stat-value">{relationship.events.length}</div>
           </div>
         </div>
 
@@ -236,6 +229,20 @@ const RelationshipView: React.FC = () => {
               </p>
             </div>
           )}
+        </div>
+      </div>
+
+      {/* Right Column - 75% width */}
+      <div className="relationship-right-column">
+        <div className="chart-section-fullscreen">
+          <h2>Price Chart</h2>
+          <div className="chart-container-fullscreen">
+            <StockChart
+              data={relationship.chartData}
+              symbol={relationship.symbol}
+              color={isPositive ? 'var(--flirt-surge)' : 'var(--heartline-red)'}
+            />
+          </div>
         </div>
       </div>
     </div>
