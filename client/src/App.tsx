@@ -9,13 +9,15 @@ import Portfolio from './components/Portfolio';
 
 import ExampleColorUsage from './components/ExampleColorUsage';
 import TradingPage from './components/TradingPage';
+import LandingPage from './components/LandingPage';
 
 function App() {
   return (
     <Router>
       <div className="app">
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/relationship/:symbol" element={<RelationshipView />} />
           <Route path="/trade/:symbol" element={<TradingPage />} />
