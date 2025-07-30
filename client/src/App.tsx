@@ -9,8 +9,11 @@ import TradingPage from './components/TradingPage';
 import LandingPage from './components/LandingPage';
 
 function App() {
+  // Use basename for GitHub Pages subdirectory deployment
+  const basename = process.env.NODE_ENV === 'production' ? '/ROImance' : '';
+  
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="app">
         <Routes>
           <Route path="/" element={<LandingPage />} />
