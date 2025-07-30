@@ -3,11 +3,7 @@ import {
   Home, 
   TrendingUp, 
   PieChart, 
-  Search, 
-  Star, 
-  Settings,
-  CreditCard,
-  BarChart3
+  Search
 } from 'lucide-react';
 
 interface SidebarProps {

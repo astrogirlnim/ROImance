@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -6,8 +5,6 @@ import './App.css';
 import Dashboard from './components/Dashboard';
 import RelationshipView from './components/RelationshipView';
 import Portfolio from './components/Portfolio';
-
-import ExampleColorUsage from './components/ExampleColorUsage';
 import TradingPage from './components/TradingPage';
 import LandingPage from './components/LandingPage';
 

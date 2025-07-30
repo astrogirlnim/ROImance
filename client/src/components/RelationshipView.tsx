@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, TrendingUp, ArrowUp, ArrowDown, Heart, Users, Calendar, PieChart, DollarSign } from 'lucide-react';
 import StockChart from './StockChart';
 import { mockStocks, portfolioData } from '../utils/mockData';
-import type { RelationshipStock, RelationshipEvent } from '../types';
+import type { RelationshipEvent } from '../types';
 
 const RelationshipView: React.FC = () => {
   const { symbol } = useParams<{ symbol: string }>();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, ArrowUp, ArrowDown, DollarSign, Share, Calculator } from 'lucide-react';
+import { ArrowLeft, ArrowUp, ArrowDown, DollarSign, Share, Calculator } from 'lucide-react';
 import { mockStocks, portfolioData } from '../utils/mockData';
 
 const TradingPage: React.FC = () => {

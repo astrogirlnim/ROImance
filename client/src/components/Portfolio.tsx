@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, ArrowUp, ArrowDown, PieChart } from 'lucide-react';
+import { ArrowUp, ArrowDown, PieChart } from 'lucide-react';
 
 // Components
 import Sidebar from './Sidebar';
