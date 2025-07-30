@@ -6,7 +6,10 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #0d1421;
+  background-image: url('/Landing_page_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #ffffff;
   padding: 20px;
 }
