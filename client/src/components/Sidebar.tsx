@@ -52,33 +52,15 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, onItemClick }) => {
         </ul>
       </nav>
       
-      <div style={{ marginTop: 'auto', paddingTop: '24px' }}>
-        <div style={{ 
-          padding: '16px', 
-          background: '#0f172a', 
-          borderRadius: '8px',
-          border: '1px solid #1e293b'
-        }}>
-          <h4 style={{ 
-            color: '#ffffff', 
-            fontSize: '14px', 
-            marginBottom: '8px',
-            fontWeight: '600'
-          }}>
+      <div className="sidebar-footer">
+        <div className="account-value-card">
+          <h4 className="account-value-label">
             Account Value
           </h4>
-          <div style={{ 
-            color: '#00d4aa', 
-            fontSize: '20px', 
-            fontWeight: 'bold' 
-          }}>
+          <div className="account-value-amount">
             $12,845.67
           </div>
-          <div style={{ 
-            color: '#00d4aa', 
-            fontSize: '12px',
-            marginTop: '4px'
-          }}>
+          <div className="account-value-change">
             +$247.89 (+1.97%)
           </div>
         </div>

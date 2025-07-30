@@ -71,22 +71,22 @@ const Dashboard: React.FC = () => {
                 {isPortfolioPositive ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
                 {isPortfolioPositive ? '+' : ''}${Math.abs(portfolioData.dayChange).toFixed(2)} 
                 ({isPortfolioPositive ? '+' : ''}{portfolioData.dayChangePercent.toFixed(2)}%)
-                <span style={{ color: '#64748b', marginLeft: '8px' }}>Today</span>
+                <span className="portfolio-change-period">Today</span>
               </div>
               
               {/* Portfolio Chart */}
-              <div style={{ height: '200px', marginTop: '16px' }}>
+              <div className="portfolio-mini-chart">
                 <StockChart
                   data={portfolioData.chartData}
                   symbol="Portfolio"
-                  color={isPortfolioPositive ? '#00d4aa' : '#ff6b6b'}
+                  color={isPortfolioPositive ? 'var(--flirt-surge)' : 'var(--heartline-red)'}
                   showGrid={false}
                 />
               </div>
             </div>
 
             {/* Main Chart */}
-            <div className="chart-container" style={{ marginTop: '24px' }}>
+            <div className="chart-container chart-container-main">
               <div className="chart-header">
                 <h2 className="chart-title">
                   {searchQuery ? `Search Results` : 'Relationship Market Overview'}
@@ -95,6 +95,7 @@ const Dashboard: React.FC = () => {
                   {timeFilters.map(filter => (
                     <button
                       key={filter.value}
+                      type="button"
                       className={`time-filter ${selectedTimeFilter === filter.value ? 'active' : ''}`}
                       onClick={() => setSelectedTimeFilter(filter.value)}
                     >
@@ -104,11 +105,11 @@ const Dashboard: React.FC = () => {
                 </div>
               </div>
               
-              <div style={{ height: 'calc(100% - 60px)' }}>
+              <div className="chart-body">
                 <StockChart
                   data={mockStocks[0].chartData}
                   symbol={mockStocks[0].symbol}
-                  color="#00d4aa"
+                  color="var(--flirt-surge)"
                 />
               </div>
             </div>
@@ -131,14 +132,10 @@ const Dashboard: React.FC = () => {
             </div>
 
             {searchQuery && filteredStocks.length === 0 && (
-              <div style={{ 
-                textAlign: 'center',
-                color: '#64748b',
-                padding: '40px 20px'
-              }}>
-                <TrendingUp size={48} style={{ marginBottom: '16px' }} />
+              <div className="no-results-message">
+                <TrendingUp size={48} className="no-results-icon" />
                 <p>No relationships found for "{searchQuery}"</p>
-                <p style={{ fontSize: '14px', marginTop: '8px' }}>
+                <p className="no-results-hint">
                   Try searching for a different couple or symbol
                 </p>
               </div>
@@ -148,15 +145,11 @@ const Dashboard: React.FC = () => {
 
         {/* Popular Relationships Section */}
         {!searchQuery && (
-          <div style={{ marginTop: '32px' }}>
-            <h2 className="section-title" style={{ marginBottom: '20px' }}>
+          <div className="trending-section">
+            <h2 className="section-title">
               Trending Relationships
             </h2>
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '16px'
-            }}>
+            <div className="trending-grid">
               {mockStocks.slice(0, 6).map(stock => (
                 <StockCard
                   key={stock.symbol}
@@ -169,49 +162,44 @@ const Dashboard: React.FC = () => {
         )}
 
         {/* Market Stats */}
-        <div style={{ 
-          marginTop: '32px',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-          gap: '16px'
-        }}>
+        <div className="market-stats-grid">
           <div className="stock-card">
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ color: '#64748b', fontSize: '14px', marginBottom: '8px' }}>
+            <div className="market-stat-content">
+              <div className="market-stat-label">
                 Dating Market
               </div>
-              <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#ffffff', marginBottom: '4px' }}>
+              <div className="market-stat-value">
                 +12.5%
               </div>
-              <div className="price-change positive" style={{ fontSize: '14px' }}>
+              <div className="price-change positive market-stat-period">
                 This Week
               </div>
             </div>
           </div>
           
           <div className="stock-card">
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ color: '#64748b', fontSize: '14px', marginBottom: '8px' }}>
+            <div className="market-stat-content">
+              <div className="market-stat-label">
                 Engagement Index
               </div>
-              <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#ffffff', marginBottom: '4px' }}>
+              <div className="market-stat-value">
                 +8.9%
               </div>
-              <div className="price-change positive" style={{ fontSize: '14px' }}>
+              <div className="price-change positive market-stat-period">
                 This Month
               </div>
             </div>
           </div>
           
           <div className="stock-card">
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ color: '#64748b', fontSize: '14px', marginBottom: '8px' }}>
+            <div className="market-stat-content">
+              <div className="market-stat-label">
                 Breakup Index
               </div>
-              <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#ffffff', marginBottom: '4px' }}>
+              <div className="market-stat-value">
                 -3.2%
               </div>
-              <div className="price-change negative" style={{ fontSize: '14px' }}>
+              <div className="price-change negative market-stat-period">
                 This Month
               </div>
             </div>

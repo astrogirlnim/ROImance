@@ -9,22 +9,22 @@ interface StockCardProps {
 
 const StockCard: React.FC<StockCardProps> = ({ stock, onClick }) => {
   const isPositive = stock.change >= 0;
-  const chartColor = isPositive ? '#00d4aa' : '#ff6b6b';
+  const chartColor = isPositive ? 'var(--flirt-surge)' : 'var(--heartline-red)';
   
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Married':
-        return '#ffd700';
+        return 'var(--risky-gold)';
       case 'Engaged':
-        return '#ff69b4';
+        return 'var(--trust-blue)';
       case 'Dating':
-        return '#00d4aa';
+        return 'var(--flirt-surge)';
       case 'Complicated':
-        return '#ffa500';
+        return 'var(--risky-gold)';
       case 'Broken Up':
-        return '#ff6b6b';
+        return 'var(--heartline-red)';
       default:
-        return '#64748b';
+        return 'var(--gray-mutuals)';
     }
   };
   
@@ -39,9 +39,10 @@ const StockCard: React.FC<StockCardProps> = ({ stock, onClick }) => {
               className="relationship-status" 
               style={{ 
                 color: getStatusColor(stock.relationshipStatus),
-                fontSize: '12px',
-                fontWeight: '500',
-                marginTop: '4px'
+                fontSize: 'var(--text-xs)',
+                fontWeight: 'var(--font-medium)',
+                marginTop: 'var(--spacing-1)',
+                fontFamily: 'var(--font-sans)'
               }}
             >
               {stock.relationshipStatus}
@@ -54,7 +55,12 @@ const StockCard: React.FC<StockCardProps> = ({ stock, onClick }) => {
             {isPositive ? '+' : ''}${stock.change.toFixed(2)} ({isPositive ? '+' : ''}{stock.changePercent.toFixed(2)}%)
           </div>
           {stock.volume && (
-            <div style={{ fontSize: '12px', color: '#64748b', marginTop: '2px' }}>
+            <div style={{ 
+              fontSize: 'var(--text-xs)', 
+              color: 'var(--muted-foreground)', 
+              marginTop: 'var(--spacing-0_5)',
+              fontFamily: 'var(--font-sans)'
+            }}>
               Vol: {(stock.volume / 1000000).toFixed(1)}M
             </div>
           )}

@@ -1,12 +1,12 @@
-import React from 'react';
+// Removed unused React import
 
 /**
  * Example component showing how to use ROImance design tokens
  */
 export default function ExampleColorUsage() {
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2 style={{ color: 'var(--trust-blue)' }}>Color Usage Examples</h2>
+    <div style={{ padding: 'var(--spacing-8)' }}>
+      <h2 style={{ color: 'var(--trust-blue)', fontFamily: 'var(--font-sans)' }}>Color Usage Examples</h2>
       
       {/* CSS Variables Method */}
       <section style={{ marginBottom: '2rem' }}>
@@ -14,9 +14,11 @@ export default function ExampleColorUsage() {
         <div style={{ 
           backgroundColor: 'var(--flirt-surge)', 
           color: 'var(--flirt-surge-foreground)',
-          padding: '1rem',
-          borderRadius: '0.5rem',
-          marginBottom: '0.5rem'
+          padding: 'var(--spacing-4)',
+          borderRadius: 'var(--radius-lg)',
+          marginBottom: 'var(--spacing-2)',
+          fontSize: 'var(--text-base)',
+          fontFamily: 'var(--font-sans)'
         }}>
           💚 Flirt Surge - Early attraction rising!
         </div>
@@ -24,9 +26,11 @@ export default function ExampleColorUsage() {
         <div style={{ 
           backgroundColor: 'var(--heartline-red)', 
           color: 'var(--heartline-red-foreground)',
-          padding: '1rem',
-          borderRadius: '0.5rem',
-          marginBottom: '0.5rem'
+          padding: 'var(--spacing-4)',
+          borderRadius: 'var(--radius-lg)',
+          marginBottom: 'var(--spacing-2)',
+          fontSize: 'var(--text-base)',
+          fontFamily: 'var(--font-sans)'
         }}>
           ❤️ Heartline Red - Passion peak reached!
         </div>
@@ -34,9 +38,11 @@ export default function ExampleColorUsage() {
         <div style={{ 
           backgroundColor: 'var(--trust-blue)', 
           color: 'var(--trust-blue-foreground)',
-          padding: '1rem',
-          borderRadius: '0.5rem',
-          marginBottom: '0.5rem'
+          padding: 'var(--spacing-4)',
+          borderRadius: 'var(--radius-lg)',
+          marginBottom: 'var(--spacing-2)',
+          fontSize: 'var(--text-base)',
+          fontFamily: 'var(--font-sans)'
         }}>
           💙 Trust Blue - Stable long-term bond
         </div>
@@ -74,51 +80,67 @@ export default function ExampleColorUsage() {
       {/* Button Examples */}
       <section>
         <h3>Button Examples</h3>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <button style={{
+        <div style={{ display: 'flex', gap: 'var(--spacing-4)', flexWrap: 'wrap' }}>
+          <button type="button" style={{
             backgroundColor: 'var(--button-buy-bg)',
             color: 'var(--button-buy-fg)',
             border: 'none',
-            padding: '0.75rem 1rem',
-            borderRadius: '0.375rem',
+            padding: 'var(--button-padding-md)',
+            borderRadius: 'var(--radius-md)',
             cursor: 'pointer',
-            fontWeight: '500'
+            fontWeight: 'var(--font-medium)',
+            fontSize: 'var(--text-base)',
+            fontFamily: 'var(--font-sans)',
+            height: 'var(--button-height-md)',
+            transition: 'all var(--duration-fast) var(--ease-out)'
           }}>
             💚 Buy Shares
           </button>
           
-          <button style={{
+          <button type="button" style={{
             backgroundColor: 'var(--button-sell-bg)',
             color: 'var(--button-sell-fg)',
             border: 'none',
-            padding: '0.75rem 1rem',
-            borderRadius: '0.375rem',
+            padding: 'var(--button-padding-md)',
+            borderRadius: 'var(--radius-md)',
             cursor: 'pointer',
-            fontWeight: '500'
+            fontWeight: 'var(--font-medium)',
+            fontSize: 'var(--text-base)',
+            fontFamily: 'var(--font-sans)',
+            height: 'var(--button-height-md)',
+            transition: 'all var(--duration-fast) var(--ease-out)'
           }}>
             ❤️ Sell Position
           </button>
           
-          <button style={{
+          <button type="button" style={{
             backgroundColor: 'var(--button-warning-bg)',
             color: 'var(--button-warning-fg)',
             border: 'none',
-            padding: '0.75rem 1rem',
-            borderRadius: '0.375rem',
+            padding: 'var(--button-padding-md)',
+            borderRadius: 'var(--radius-md)',
             cursor: 'pointer',
-            fontWeight: '500'
+            fontWeight: 'var(--font-medium)',
+            fontSize: 'var(--text-base)',
+            fontFamily: 'var(--font-sans)',
+            height: 'var(--button-height-md)',
+            transition: 'all var(--duration-fast) var(--ease-out)'
           }}>
             🟡 Risky Trade
           </button>
           
-          <button style={{
+          <button type="button" style={{
             backgroundColor: 'var(--button-recovery-bg)',
             color: 'var(--button-recovery-fg)',
             border: 'none',
-            padding: '0.75rem 1rem',
-            borderRadius: '0.375rem',
+            padding: 'var(--button-padding-md)',
+            borderRadius: 'var(--radius-md)',
             cursor: 'pointer',
-            fontWeight: '500'
+            fontWeight: 'var(--font-medium)',
+            fontSize: 'var(--text-base)',
+            fontFamily: 'var(--font-sans)',
+            height: 'var(--button-height-md)',
+            transition: 'all var(--duration-fast) var(--ease-out)'
           }}>
             🩶 Recovery Mode
           </button>
