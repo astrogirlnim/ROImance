@@ -5,13 +5,14 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "DATABASE_URL=\"postgresql://roimance:dev_password@localhost:5432/roimance_dev\" tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "db:setup": "DATABASE_URL=\"postgresql://roimance:dev_password@localhost:5432/roimance_dev\" npx prisma db push"
   },
   "dependencies": {
     "@prisma/client": "^6.13.0",
