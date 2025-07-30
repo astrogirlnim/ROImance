@@ -38,9 +38,22 @@ interface StockChartProps {
 const StockChart: React.FC<StockChartProps> = ({ 
   data, 
   symbol, 
-  color = '#00d4aa',
+  color = 'var(--flirt-surge)',
   showGrid = true 
 }) => {
+  // Create a light background color for the chart fill
+  const getBackgroundColor = (borderColor: string) => {
+    if (borderColor.includes('--flirt-surge')) {
+      return 'rgba(39, 174, 96, 0.08)'; // Light green fill
+    } else if (borderColor.includes('--heartline-red')) {
+      return 'rgba(231, 76, 60, 0.08)'; // Light red fill
+    } else if (borderColor.includes('--trust-blue')) {
+      return 'rgba(41, 128, 185, 0.08)'; // Light blue fill
+    } else {
+      return 'rgba(39, 174, 96, 0.08)'; // Default light green
+    }
+  };
+
   const chartData = {
     labels: data.map(item => item.time),
     datasets: [
@@ -48,14 +61,14 @@ const StockChart: React.FC<StockChartProps> = ({
         label: symbol,
         data: data.map(item => item.price),
         borderColor: color,
-        backgroundColor: `${color}15`,
+        backgroundColor: getBackgroundColor(color),
         borderWidth: 2,
         fill: true,
         tension: 0.4,
         pointRadius: 0,
         pointHoverRadius: 6,
         pointHoverBackgroundColor: color,
-        pointHoverBorderColor: '#ffffff',
+        pointHoverBorderColor: 'var(--card)',
         pointHoverBorderWidth: 2,
       },
     ],
@@ -64,6 +77,7 @@ const StockChart: React.FC<StockChartProps> = ({
   const options = {
     responsive: true,
     maintainAspectRatio: false,
+    backgroundColor: 'var(--card)',
     plugins: {
       legend: {
         display: false,
@@ -71,10 +85,10 @@ const StockChart: React.FC<StockChartProps> = ({
       tooltip: {
         mode: 'index' as const,
         intersect: false,
-        backgroundColor: '#1c2536',
-        titleColor: '#ffffff',
-        bodyColor: '#ffffff',
-        borderColor: '#2d3748',
+        backgroundColor: 'var(--card)',
+        titleColor: 'var(--foreground)',
+        bodyColor: 'var(--foreground)',
+        borderColor: 'var(--border)',
         borderWidth: 1,
         cornerRadius: 8,
         displayColors: false,
@@ -98,12 +112,12 @@ const StockChart: React.FC<StockChartProps> = ({
         display: showGrid,
         grid: {
           display: showGrid,
-          color: '#2d3748',
+          color: 'var(--border)',
           drawBorder: false,
         },
         ticks: {
           display: showGrid,
-          color: '#64748b',
+          color: 'var(--muted-foreground)',
           maxTicksLimit: 6,
         },
       },
@@ -112,12 +126,12 @@ const StockChart: React.FC<StockChartProps> = ({
         position: 'right' as const,
         grid: {
           display: showGrid,
-          color: '#2d3748',
+          color: 'var(--border)',
           drawBorder: false,
         },
         ticks: {
           display: showGrid,
-          color: '#64748b',
+          color: 'var(--muted-foreground)',
           callback: function(value: any) {
             return `$${value}`;
           },
@@ -132,7 +146,12 @@ const StockChart: React.FC<StockChartProps> = ({
   };
 
   return (
-    <div style={{ height: '100%', width: '100%' }}>
+    <div style={{ 
+      height: '100%', 
+      width: '100%',
+      backgroundColor: 'var(--card)',
+      borderRadius: '8px'
+    }}>
       <Line data={chartData} options={options} />
     </div>
   );

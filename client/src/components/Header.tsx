@@ -9,7 +9,13 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange }) => {
   return (
     <div className="header">
-      <h1 style={{ fontSize: '28px', fontWeight: '700', color: '#ffffff' }}>
+      <h1 style={{ 
+        fontSize: 'var(--text-3xl)', 
+        fontWeight: 'var(--font-bold)', 
+        color: 'var(--foreground)',
+        fontFamily: 'var(--font-sans)',
+        margin: 0
+      }}>
         Good morning
       </h1>
       
@@ -27,15 +33,15 @@ const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange }) => {
       <div className="user-profile">
         <Bell size={20} />
         <div style={{ 
-          width: '36px', 
-          height: '36px', 
-          background: '#00d4aa', 
-          borderRadius: '50%',
+          width: 'var(--spacing-9)', 
+          height: 'var(--spacing-9)', 
+          background: 'var(--flirt-surge)', 
+          borderRadius: 'var(--radius-full)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center'
         }}>
-          <User size={20} color="#0d1421" />
+          <User size={20} color="var(--flirt-surge-foreground)" />
         </div>
       </div>
     </div>

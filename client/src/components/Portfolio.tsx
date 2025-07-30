@@ -43,23 +43,11 @@ const Portfolio: React.FC = () => {
         
         <div className="portfolio-page">
           <div className="portfolio-header">
-            <h1 style={{ 
-              fontSize: '32px', 
-              fontWeight: 'bold', 
-              color: '#ffffff',
-              marginBottom: '8px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '12px'
-            }}>
-              <PieChart size={32} style={{ color: '#00d4aa' }} />
+            <h1 className="portfolio-title">
+              <PieChart size={32} className="portfolio-icon" />
               My Portfolio
             </h1>
-            <p style={{ 
-              color: '#64748b', 
-              fontSize: '16px',
-              marginBottom: '32px'
-            }}>
+            <p className="portfolio-description">
               Track your relationship stock investments and daily performance
             </p>
           </div>
@@ -77,7 +65,7 @@ const Portfolio: React.FC = () => {
                 {isPortfolioPositive ? <ArrowUp size={20} /> : <ArrowDown size={20} />}
                 {isPortfolioPositive ? '+' : ''}${Math.abs(portfolioData.dayChange).toFixed(2)} 
                 ({isPortfolioPositive ? '+' : ''}{portfolioData.dayChangePercent.toFixed(2)}%)
-                <span style={{ color: '#64748b', marginLeft: '12px' }}>Today</span>
+                <span className="portfolio-change-period-large">Today</span>
               </div>
             </div>
 
@@ -88,7 +76,7 @@ const Portfolio: React.FC = () => {
               </div>
               <div className="stat-item">
                 <div className="stat-label">Best Performer</div>
-                <div className="stat-value" style={{ color: '#00d4aa' }}>
+                <div className="stat-value best-performer">
                   {portfolioData.holdings.reduce((best, current) => 
                     current.dayChange > best.dayChange ? current : best
                   ).symbol}
@@ -120,11 +108,11 @@ const Portfolio: React.FC = () => {
               </div>
             </div>
             
-            <div style={{ height: '400px', marginTop: '20px' }}>
+            <div className="portfolio-chart-body">
               <StockChart
                 data={portfolioData.chartData}
                 symbol="Portfolio"
-                color={isPortfolioPositive ? '#00d4aa' : '#ff6b6b'}
+                color={isPortfolioPositive ? 'var(--flirt-surge)' : 'var(--heartline-red)'}
               />
             </div>
           </div>

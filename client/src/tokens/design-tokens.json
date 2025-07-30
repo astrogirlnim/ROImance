@@ -1,38 +1,41 @@
 {
   "meta": {
     "name": "ROImance Design System",
-    "description": "Design tokens for relationship trading app with pastel base and bold chart colors",
+    "description": "Design tokens for relationship trading app with warm earth tone base and bold chart colors",
     "version": "1.0.0",
-    "aesthetic": "Manifold/Robinhood hybrid - pastel base with bold chart colors"
+    "aesthetic": "Manifold/Robinhood hybrid - warm earth tone base with bold chart colors",
+    "defaultTheme": "light"
   },
   "colors": {
     "base": {
-      "white": "oklch(1 0 0)",
-      "black": "oklch(0 0 0)",
+      "white": "#FFFFFF",
+      "cream": "#F9F4EF",
+      "dark-brown": "#261F1B",
+      "black": "#000000",
       "transparent": "transparent"
     },
-    "pastel": {
-      "background": "oklch(0.98 0.02 220)",
-      "foreground": "oklch(0.15 0.02 220)",
-      "card": "oklch(0.99 0.01 220)",
-      "card-foreground": "oklch(0.15 0.02 220)",
-      "popover": "oklch(0.99 0.01 220)",
-      "popover-foreground": "oklch(0.15 0.02 220)",
-      "muted": "oklch(0.95 0.02 220)",
-      "muted-foreground": "oklch(0.45 0.02 220)",
-      "accent": "oklch(0.93 0.03 280)",
-      "accent-foreground": "oklch(0.15 0.02 220)",
-      "border": "oklch(0.90 0.02 220)",
-      "input": "oklch(0.90 0.02 220)",
-      "ring": "oklch(0.70 0.08 280)"
+    "light": {
+      "background": "#F9F4EF",
+      "foreground": "#261F1B",
+      "card": "#E8D5C6",
+      "card-foreground": "#261F1B",
+      "popover": "#E8D5C6",
+      "popover-foreground": "#261F1B",
+      "muted": "#E8C8B8",
+      "muted-foreground": "#747C7B",
+      "accent": "#F0BD9D",
+      "accent-foreground": "#261F1B",
+      "border": "#ADA297",
+      "input": "#ADA297",
+      "ring": "#CC8B61"
     },
     "primary": {
-      "DEFAULT": "oklch(0.85 0.08 320)",
-      "foreground": "oklch(0.15 0.02 220)"
+      "DEFAULT": "#935831",
+      "foreground": "#F9F4EF"
     },
     "secondary": {
-      "DEFAULT": "oklch(0.88 0.06 200)",
-      "foreground": "oklch(0.15 0.02 220)"
+      "DEFAULT": "#CC8B61",
+      "foreground": "#261F1B"
     },
     "trading": {
       "flirt-surge": "#27ae60",
@@ -220,13 +223,13 @@
         },
         "ghost": {
           "background": "transparent",
-          "foreground": "#2c3e50",
-          "hover": "#f8c8dc"
+          "foreground": "#261F1B",
+          "hover": "#F0BD9D"
         },
         "recovery": {
-          "background": "#95a5a6",
-          "foreground": "#ffffff",
-          "hover": "#7b7d7d"
+          "background": "#ADA297",
+          "foreground": "#F9F4EF",
+          "hover": "#935831"
         }
       }
     },
@@ -234,30 +237,30 @@
       "height": "2.5rem",
       "padding": "0.5rem 0.75rem",
       "colors": {
-        "background": "#ffffff",
-        "border": "#95a5a6",
-        "border-focus": "#2980b9",
-        "foreground": "#2c3e50",
-        "placeholder": "#95a5a6"
+        "background": "#F9F4EF",
+        "border": "#ADA297",
+        "border-focus": "#935831",
+        "foreground": "#261F1B",
+        "placeholder": "#747C7B"
       }
     },
     "nav": {
       "height": "4rem",
       "padding": "0 1rem",
       "colors": {
-        "background": "#ffffff",
-        "foreground": "#2c3e50",
-        "border": "#f8c8dc",
-        "active": "#2980b9",
-        "hover": "#f8c8dc"
+        "background": "#F9F4EF",
+        "foreground": "#261F1B",
+        "border": "#E1A686",
+        "active": "#935831",
+        "hover": "#F0BD9D"
       }
     },
     "card": {
       "colors": {
-        "background": "#ffffff",
-        "border": "#f8c8dc",
-        "foreground": "#2c3e50",
-        "muted": "#95a5a6"
+        "background": "#E8D5C6",
+        "border": "#E1A686",
+        "foreground": "#261F1B",
+        "muted": "#ADA297"
       },
       "variants": {
         "profit": {
@@ -294,29 +297,29 @@
         },
         "risky": {
           "background": "#f1c40f",
-          "foreground": "#2c3e50"
+          "foreground": "#261F1B"
         },
         "breakdown": {
           "background": "#7f1d1d",
           "foreground": "#ffffff"
         },
         "recovery": {
-          "background": "#95a5a6",
-          "foreground": "#ffffff"
+          "background": "#ADA297",
+          "foreground": "#F9F4EF"
         },
         "rebound": {
-          "background": "#f8c8dc",
-          "foreground": "#2c3e50"
+          "background": "#F0BD9D",
+          "foreground": "#261F1B"
         }
       }
     },
     "chart": {
       "colors": {
-        "grid": "#f8c8dc",
-        "axis": "#95a5a6",
-        "tooltip-background": "#ffffff",
-        "tooltip-border": "#95a5a6",
-        "tooltip-foreground": "#2c3e50"
+        "grid": "#E1A686",
+        "axis": "#ADA297",
+        "tooltip-background": "#E8D5C6",
+        "tooltip-border": "#ADA297",
+        "tooltip-foreground": "#261F1B"
       }
     },
     "alert": {
@@ -353,7 +356,7 @@
       "volatility": "#f1c40f",
       "heartbreak": "#2c3e50",
       "recovery": "#95a5a6",
-      "new-hope": "#f8c8dc"
+      "new-hope": "#F0BD9D"
     },
     "metrics": {
       "aph": "#27ae60",
