@@ -9,11 +9,10 @@
   height: 100vh;
   z-index: 1000;
   
-  /* Center content */
+  /* Position content on the left */
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   
   /* Background image styling */
   background-image: url('/Landing_page_bg.png');
@@ -22,34 +21,94 @@
   background-repeat: no-repeat;
   
   /* Text styling */
-  color: #ffffff;
-  padding: 20px;
+  color: #000000;
+  padding: 80px;
+}
+
+.landing-content {
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .title {
-  font-size: 3rem;
-  color: #00d4aa;
-  margin-bottom: 10px;
+  font-size: 7rem;
+  font-weight: 600;
+  color: #000000;
+  line-height: 0.95;
+  margin: 0;
+  letter-spacing: -0.02em;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .tagline {
-  font-size: 1.5rem;
-  color: #94a3b8;
-  margin-bottom: 20px;
-  text-align: center;
+  font-size: 1.8rem;
+  color: #333333;
+  line-height: 1.4;
+  margin: 0;
+  max-width: 520px;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .navigate-button {
-  font-size: 1rem;
-  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 16px 32px;
   color: #ffffff;
-  background-color: #007bff;
+  background-color: #000000;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  align-self: flex-start;
 }
 
 .navigate-button:hover {
-  background-color: #0056b3;
+  background-color: #333333;
+  transform: translateY(-1px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .landing-page {
+    padding: 40px;
+  }
+  
+  .landing-content {
+    gap: 32px;
+  }
+  
+  .title {
+    font-size: 4.5rem;
+  }
+  
+  .tagline {
+    font-size: 1.5rem;
+  }
+  
+  .navigate-button {
+    font-size: 1rem;
+    padding: 14px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-page {
+    padding: 20px;
+  }
+  
+  .landing-content {
+    gap: 28px;
+  }
+  
+  .title {
+    font-size: 3.2rem;
+    line-height: 1.0;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+  }
 } 

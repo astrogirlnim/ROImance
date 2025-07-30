@@ -18,11 +18,13 @@ function LandingPage() {
 
   return (
     <div className="landing-page">
-      <h1 className="title">ROImance</h1>
-      <p className="tagline">Have you ever looked at a relationship and thought that's not gonna work</p>
-      <button className="navigate-button" onClick={handleNavigation}>
-        Take me to my relationships
-      </button>
+      <div className="landing-content">
+        <h1 className="title">Shares for Pairs</h1>
+        <p className="tagline">Have you ever thought to yourself "that relationship is never going to work"? Well now you can put money where your mouth is.</p>
+        <button className="navigate-button" onClick={handleNavigation}>
+          Take Me to My Relationships
+        </button>
+      </div>
     </div>
   );
 }
