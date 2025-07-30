@@ -68,7 +68,7 @@ const RelationshipView: React.FC = () => {
       </button>
 
       <div className="relationship-main-content">
-        {/* Left Column - 30% */}
+        {/* Left Column - 25% */}
         <div className="relationship-left-column">
           <div className="relationship-header">
             <div className="relationship-info">
@@ -95,52 +95,52 @@ const RelationshipView: React.FC = () => {
           {hasPosition && (
             <div className="portfolio-position-section">
               <div className="position-header">
-                <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ffffff', fontSize: '18px', fontWeight: '600' }}>
-                  <PieChart size={20} style={{ color: '#00d4aa' }} />
+                <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#ffffff', fontSize: '16px', fontWeight: '600' }}>
+                  <PieChart size={18} style={{ color: '#00d4aa' }} />
                   Your Position
                 </h3>
               </div>
               
               <div className="position-stats-grid">
                 <div className="position-stat">
-                  <div className="stat-label">Shares Owned</div>
+                  <div className="stat-label">Shares</div>
                   <div className="stat-value">{userHolding.shares}</div>
                 </div>
                 <div className="position-stat">
-                  <div className="stat-label">Market Value</div>
+                  <div className="stat-label">Value</div>
                   <div className="stat-value">
-                    ${userHolding.value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    ${(userHolding.value / 1000).toFixed(1)}k
                   </div>
                 </div>
                 <div className="position-stat">
-                  <div className="stat-label">Today's Change</div>
+                  <div className="stat-label">Today</div>
                   <div className={`stat-value ${userHolding.dayChange >= 0 ? 'positive' : 'negative'}`}>
-                    {userHolding.dayChange >= 0 ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
-                    {userHolding.dayChange >= 0 ? '+' : ''}${Math.abs(userHolding.dayChange).toFixed(2)}
+                    {userHolding.dayChange >= 0 ? <ArrowUp size={14} /> : <ArrowDown size={14} />}
+                    ${Math.abs(userHolding.dayChange).toFixed(0)}
                   </div>
                 </div>
                 <div className="position-stat">
-                  <div className="stat-label">Total Return</div>
+                  <div className="stat-label">Return</div>
                   <div className={`stat-value ${isPositionPositive ? 'positive' : 'negative'}`}>
-                    {isPositionPositive ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
-                    {isPositionPositive ? '+' : ''}${Math.abs(totalReturn).toFixed(2)} ({isPositionPositive ? '+' : ''}{totalReturnPercent.toFixed(2)}%)
+                    {isPositionPositive ? <ArrowUp size={14} /> : <ArrowDown size={14} />}
+                    {totalReturnPercent.toFixed(1)}%
                   </div>
                 </div>
               </div>
               
               <div className="position-actions">
                 <button 
-                  className="portfolio-action-button primary"
+                  className="portfolio-action-button primary compact"
                   onClick={() => navigate('/portfolio')}
                 >
-                  <DollarSign size={16} />
-                  View Full Portfolio
+                  <DollarSign size={14} />
+                  Portfolio
                 </button>
                 <button 
-                  className="portfolio-action-button secondary"
+                  className="portfolio-action-button secondary compact"
                   onClick={() => navigate(`/trade/${symbol}`)}
                 >
-                  Trade Position
+                  Trade
                 </button>
               </div>
             </div>
@@ -148,22 +148,22 @@ const RelationshipView: React.FC = () => {
 
           {/* No Position CTA */}
           {!hasPosition && (
-            <div className="no-position-section">
+            <div className="no-position-section compact">
               <div style={{ 
                 background: '#1c2536', 
                 border: '1px solid #2d3748', 
-                borderRadius: '12px', 
-                padding: '24px',
+                borderRadius: '10px', 
+                padding: '20px',
                 textAlign: 'center',
-                marginBottom: '32px'
+                marginBottom: '20px'
               }}>
-                <PieChart size={48} style={{ color: '#64748b', marginBottom: '16px' }} />
-                <h3 style={{ color: '#ffffff', marginBottom: '8px' }}>You don't own this stock</h3>
-                <p style={{ color: '#64748b', marginBottom: '20px', fontSize: '14px' }}>
-                  Start investing in {relationship.couple} to track your position here
+                <PieChart size={36} style={{ color: '#64748b', marginBottom: '12px' }} />
+                <h3 style={{ color: '#ffffff', marginBottom: '6px', fontSize: '16px' }}>No position</h3>
+                <p style={{ color: '#64748b', marginBottom: '16px', fontSize: '13px' }}>
+                  Start investing in {relationship.couple}
                 </p>
                 <button 
-                  className="portfolio-action-button primary"
+                  className="portfolio-action-button primary compact"
                   onClick={() => navigate(`/trade/${symbol}`)}
                 >
                   Buy {relationship.symbol}
@@ -172,10 +172,11 @@ const RelationshipView: React.FC = () => {
             </div>
           )}
 
-          <div className="relationship-stats">
+          {/* Stats Grid - Horizontal Layout */}
+          <div className="relationship-stats-grid">
             <div className="stat-item">
               <div className="stat-label">Volume</div>
-              <div className="stat-value">{relationship.volume.toLocaleString()}</div>
+              <div className="stat-value">{(relationship.volume / 1000).toFixed(0)}k</div>
             </div>
             <div className="stat-item">
               <div className="stat-label">Market Cap</div>
@@ -187,12 +188,12 @@ const RelationshipView: React.FC = () => {
             </div>
           </div>
 
-          <div className="events-section">
+          <div className="events-section compact">
             <h2>Recent Events</h2>
             {relationship.events.length > 0 ? (
               <div className="events-list">
-                {relationship.events.map(event => (
-                  <div key={event.id} className="event-item">
+                {relationship.events.slice(0, 4).map(event => (
+                  <div key={event.id} className="event-item compact">
                     <div className="event-icon" style={{ color: getEventColor(event.impact) }}>
                       {getEventIcon(event.type)}
                     </div>
@@ -202,9 +203,7 @@ const RelationshipView: React.FC = () => {
                         <span className="event-time">
                           {new Date(event.timestamp).toLocaleDateString('en-US', {
                             month: 'short',
-                            day: 'numeric',
-                            hour: '2-digit',
-                            minute: '2-digit'
+                            day: 'numeric'
                           })}
                         </span>
                         {event.priceImpact && (
@@ -216,20 +215,25 @@ const RelationshipView: React.FC = () => {
                     </div>
                   </div>
                 ))}
+                {relationship.events.length > 4 && (
+                  <div className="show-more-events">
+                    +{relationship.events.length - 4} more events
+                  </div>
+                )}
               </div>
             ) : (
               <div className="no-events">
-                <TrendingUp size={48} style={{ color: '#64748b', marginBottom: '16px' }} />
-                <p>No recent events</p>
-                <p style={{ fontSize: '14px', color: '#64748b' }}>
-                  Check back later for relationship updates
+                <TrendingUp size={36} style={{ color: '#64748b', marginBottom: '12px' }} />
+                <p style={{ fontSize: '14px' }}>No recent events</p>
+                <p style={{ fontSize: '12px', color: '#64748b' }}>
+                  Check back later for updates
                 </p>
               </div>
             )}
           </div>
         </div>
 
-        {/* Right Column - 70% */}
+        {/* Right Column - 75% */}
         <div className="relationship-right-column">
           <div className="chart-section" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
             <h2>Price Chart</h2>
