@@ -22,7 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, onItemClick }) => {
     <div className="sidebar">
       <div className="logo">
         <TrendingUp size={28} />
-        ROImance
+        Shares for Pairs
       </div>
       
       <nav>

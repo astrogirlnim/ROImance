@@ -10,11 +10,13 @@ const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange }) => {
   return (
     <div className="header">
       <h1 style={{ 
-        fontSize: 'var(--text-3xl)', 
-        fontWeight: 'var(--font-bold)', 
-        color: 'var(--foreground)',
-        fontFamily: 'var(--font-sans)',
-        margin: 0
+        fontSize: '2.5rem', 
+        fontWeight: '600', 
+        color: '#000000',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif',
+        margin: 0,
+        letterSpacing: '-0.02em',
+        lineHeight: '1.1'
       }}>
         Good morning
       </h1>
@@ -23,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange }) => {
         <Search size={20} color="#64748b" />
         <input
           type="text"
-          placeholder="Search stocks, ETFs, or cryptocurrencies"
+          placeholder="Search relationships, couples, or symbols"
           className="search-input"
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}

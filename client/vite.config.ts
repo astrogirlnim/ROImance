@@ -11,8 +11,14 @@ export default defineConfig({
     // Ensure clean build output
     outDir: 'dist',
     emptyOutDir: true,
-    // Generate source maps for debugging
-    sourcemap: true,
+    assetsDir: 'assets',
+    // Generate source maps for debugging in development, disable in production
+    sourcemap: process.env.NODE_ENV !== 'production',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   // Configure dev server
   server: {

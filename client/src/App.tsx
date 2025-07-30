@@ -1,3 +1,4 @@
+// React import removed - not needed with new JSX transform
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 

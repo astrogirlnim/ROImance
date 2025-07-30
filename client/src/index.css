@@ -116,13 +116,15 @@ button:focus-visible {
 }
 
 .logo {
-  font-size: var(--text-2xl);
-  font-weight: var(--font-bold);
-  color: var(--flirt-surge);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #000000;
   margin-bottom: var(--spacing-10);
   display: flex;
   align-items: center;
   gap: var(--spacing-3);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .nav-menu {
@@ -196,8 +198,8 @@ button:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
-  padding-bottom: 16px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -323,10 +325,13 @@ button:focus-visible {
 }
 
 .portfolio-value {
-  font-size: 32px;
-  font-weight: bold;
-  color: var(--foreground);
-  margin-bottom: 8px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .portfolio-change {
@@ -362,9 +367,11 @@ button:focus-visible {
 }
 
 .chart-title {
-  font-size: 18px;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: var(--foreground);
+  color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .time-filters {
@@ -466,10 +473,12 @@ button:focus-visible {
 }
 
 .section-title {
-  font-size: 18px;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: var(--foreground);
-  margin-bottom: 20px;
+  color: #000000;
+  margin-bottom: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 /* Relationship View */
